@@ -1,0 +1,282 @@
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    Required meta tags 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+	<div >
+		<div >
+	  		<div class="card-header">
+	 			Invoice
+				<strong>{{Invoice_Ids.Invoice_Id}}</strong> 
+				<span class="float-right"> <strong>Date:</strong>{{Invoice_Ids.Invoice_date}}</span>
+	  		</div>
+	  		<div class="card-body">
+	  			<div class="row mb-4">
+	  				<div	iv class="col-sm-6">
+	  					<h6 class="mb-3">From:</h6>
+	  						<div>
+	  							<strong>Incoice deparment</strong>
+	  						</div>
+	 						<div>Pune</div>
+	  						<div>Maharastra, India</div>
+	  						<div>Email:Paliwalmahesh981@gamil.com</div>
+	 						<div>Phone: +91 9823596668</div>
+	  				</div>
+				</div>
+	  			<div class="table-responsive-sm">
+	  				<table	ble	table class="table table-striped">
+	  					<thead>
+							  
+	  						<tr>
+	  							
+	  							<th>Item</th>
+								<th class="right">Unit Cost</th>
+								<th class="center">Qty</th>
+	  							<th class="right">Total</th>
+	  						</tr>
+	  					</thead>
+	  					<tbody>
+							
+							{% for i in Item_added %}
+	  						<tr>
+	  							
+	  							<th class="left">{{i.description}}</th>
+								<th class="right">{{i.Cost}}</th>
+								<th class="center">{{i.quantity}}</th>
+								<script>
+									
+									document.getElementById("demo").innerHTML=i.Cost*i.quantity
+								</script>
+
+	  							<th class="right" id="demo">a</th>
+
+	  						</tr>
+							  {% endfor %}
+						
+	  					</tbody>
+	  				</table>
+	  			</div>
+	<div class="row">
+	  	<div class="col-lg-4 col-sm-5"></div>
+	  		<div class="col-lg-4 col-sm-5 ml-auto">
+	  			<table class="table table-clear">
+	  				<tbody>
+	  					<tr>
+							<td class="left">
+								<strong>total Amount</strong>
+							</td>
+	  						<td class="right">{{Invoice_Ids.total_cost}}</td>
+	  					</tr>
+	 
+	 				</tbody>
+	  			</table>
+	  		</div>
+	  
+	</div>
+</div>
+</div>
+</div>
+
+  </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabcart</title>
+    <style>
+        body{
+            background-color: #F6F6F6; 
+            margin: 0;
+            padding: 0;
+        }
+        h1,h2,h3,h4,h5,h6{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .brand-section{
+           background-color: #0d1033;
+           padding: 10px 40px;
+        }
+        .logo{
+            width: 50%;
+        }
+
+        .row{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .col-6{
+            width: 50%;
+            flex: 0 0 auto;
+        }
+		.text-white {
+			color: #fff;
+			padding-left: 250px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+					}
+        .company-details{
+            float: right;
+            text-align: right;
+        }
+        .body-section{
+            padding: 16px;
+            border: 1px solid gray;
+        }
+        .heading{
+            font-size: 20px;
+            margin-bottom: 08px;
+			padding-left: 250px;
+			padding-top: 3px;
+        }
+		.heading2{
+            font-size: 10px;
+            margin-bottom: 08px;
+			padding-left: 10px;
+			padding-top: 3px;
+        }
+        .sub-heading{
+            color: #262626;
+            margin-bottom: 05px;
+        }
+        table{
+            background-color: #fff;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table thead tr{
+            border: 1px solid #111;
+            background-color: #f2f2f2;
+        }
+        table td {
+            vertical-align: middle !important;
+            text-align: center;
+        }
+        table th, table td {
+            padding-top: 08px;
+            padding-bottom: 08px;
+        }
+        .table-bordered{
+            box-shadow: 0px 0px 5px 0.5px gray;
+        }
+        .table-bordered td, .table-bordered th {
+            border: 1px solid #dee2e6;
+        }
+        .text-right{
+            text-align: end;
+        }
+        .w-20{
+            width: 20%;
+        }
+        .float-right{
+            float: right;
+        }
+	
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+	.Add{ 
+		padding-left: 10px;
+	}
+    
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="brand-section">
+           
+                
+					
+                    <h1 class="text-white">Invoice_Department</h1>
+            
+              
+                
+            
+        </div>
+<div>
+        <div class="Add">
+     
+                    <h1><strong>Invoice No.:</strong>{{Invoice_Ids.Invoice_Id}}</h1>
+                    <h1>Order Date:<p>  {{Invoice_Ids.Invoice_date}} </p></h1>
+                    <p >Email Address: customer@gfmail.com </p>
+					<p >+91 888555XXXX</p>
+		
+    
+				</div>
+        </div>
+		<br>
+        <div class="body-section">
+            <h3 class="heading">Ordered Items</h3>
+            <br>
+            <table class="table-bordered">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th class="w-20">Price</th>
+                        <th class="w-20">Quantity</th>
+                        <th class="w-20">Grandtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+							{% for i in Item_added %}
+							<tr>
+								
+								<th >{{i.description}}</th>
+							  <th >{{i.Cost}}</th>
+							  <th >{{i.quantity}}</th>
+							  
+
+								<th id="demo">{{i.grand_total}}</th>
+
+							</tr>
+							{% endfor %}
+                  
+                    <tr>
+                        <td colspan="3" class="text-right">Grand Total</td>
+                        <td> {{Invoice_Ids.total_cost}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h3 class="heading2">Payment Status: Paid</h3>
+            <h3 class="heading2">Payment Mode: Cash on Delivery</h3>
+        </div>
+
+        <div class="body-section">
+            <p>&copy; Copyright 2021 - Fabcart. All rights reserved. 
+                <a href="Paliwalmahesh981@gamil.com/" class="float-right">Email:Paliwalmahesh981@gamil.com </a>
+				<p>Phone: +91 9823596668</p>
+            </p>
+        </div>      
+    </div>      
+
+</body>
+</html>

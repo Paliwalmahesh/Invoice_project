@@ -18,14 +18,21 @@
       </div> 
       <div class="row mb-3 mx-3">  
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a description here" name="description" id="floatingTextarea2" style="height: 100px"></textarea>
+          <textarea class="form-control" placeholder="Leave a description here" name="description" id="floatingTextarea2" style="height: 100px" required></textarea>
           <label for="floatingTextarea2">description</label>
         </div>
-        <div class="row mb-3 mx-3">  
       </div>
+        <div class="row mb-3 mx-3">  
+      
         <div class="form-floating">
-          <input type="Float" class="form-control" name="Cost" id="floatingInput" placeholder="Cost">
+          <input type="Float" class="form-control" name="Cost" id="floatingInput" placeholder="Cost" required> 
           <label for="floatingInput">Cost</label>
+        </div>
+      </div>
+      <div class="row mb-3 mx-3"> 
+        <div class="form-floating">
+          <input type="number" class="form-control" name="quantity" id="floatingInput" placeholder="quantity" required>
+          <label for="floatingInput">quantity</label>
         </div>
         </div>
         <div class="row g-3 mx-auto ">
@@ -38,10 +45,15 @@
     <table class="table">
         <thead>
           <tr>
+            
  
-            <th scope="col">description</th>
-          
+            <th scope="col">Description</th>
+            <th scope="col">Quantity</th>
             <th scope="col">Cost</th>
+            <th scope="col">Grand total</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        
           </tr>
         </thead>
         <tbody>
@@ -50,14 +62,20 @@
           <tr>
 
             <td>{{i.description}}</td>
-            
+            <td>{{i.quantity}}</td>
             <td>{{i.Cost}}</td>
+            <td>{{i.grand_total}}</td>
+            <td> <a  class="btn btn-sm btn-info" href="{% url 'update_Items' i.id %}"> Update </a> </td>
+            <td> <a class="btn btn-danger"href= "{% url 'delete_Items' i.id %}">Delete</a></td>
+
           </tr>
           {% endfor %}
         </tbody>
       </table>
+      <strong> total Amount</strong>
       <div>
-        <strong> total Amount</strong>{{total_cost}}</div>
+        {{total_cost}}</div>
+        <a class="btn btn-danger"href= "{% url 'render_pdf_view' Invoice_Id %}">Print</a>
 
 
     <!-- Optional JavaScript; choose one of the two! -->

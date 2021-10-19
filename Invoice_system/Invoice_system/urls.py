@@ -16,11 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from posts import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.add_invoice,name='addinvoice'),
     path('Add_Item/<str:Invoice_Id>',views.Add_Item,name="Add_Item"),
-  
+    path('update_Items/<str:pk>/', views.updateItems, name="update_Items"),
+    path('delete_Items/<str:pk>/', views.deleteItems, name="delete_Items"),
+    path('render_pdf_view/<str:Invoice_Id>',views.render_pdf_view,name="render_pdf_view"),
 ]
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

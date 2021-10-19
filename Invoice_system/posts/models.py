@@ -14,8 +14,11 @@ class Invoice(models.Model):
          
 
 class Items(models.Model):
+    id = models.AutoField(primary_key=True)
+    quantity=models.IntegerField(default=1)
     Invoice_no = models.ForeignKey(Invoice, on_delete=models.CASCADE,related_name='Invoice_no')
     Cost = models.FloatField()
+    grand_total= models.FloatField(default=1)
     description = models.TextField()
     def __str__(self):
         return self.description
