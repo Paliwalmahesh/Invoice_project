@@ -63,7 +63,7 @@ def updateItems(request, pk):
 	form = ItemsForm(instance=items)
 	if request.method == 'POST':
 		Invoice_Id = items.Invoice_no
-		form = ItemsForm(request.POST, instance=items)
+		form = ItemsForm(request.POST,instance=items)
 		if form.is_valid():
 			form.save()
 			return redirect("Add_Item",Invoice_Id)
@@ -77,7 +77,6 @@ def deleteItems(request, pk):
 		Invoice_Id = item.Invoice_no
 		item.delete()
 		return redirect("Add_Item",Invoice_Id)
-
 	context = {'item':item}
 	return render(request, 'posts/delete.html', context)
 
@@ -103,7 +102,6 @@ def render_pdf_view(request,Invoice_Id):
 	# find the template and render it.
 	template = get_template(template_path)
 	html = template.render(context)
-
 	# create a pdf
 	pisa_status = pisa.CreatePDF(html, dest=response)
 	# if error then show some funy view
