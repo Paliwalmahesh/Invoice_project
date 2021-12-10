@@ -55,8 +55,7 @@ def Add_Item(request,Invoice_Id):
 		}
 		return render(request,'posts/new_item.html',context)
 
-def printi(request):
-	pass
+
 
 def updateItems(request, pk):
 	items = Items.objects.get(id=pk)
